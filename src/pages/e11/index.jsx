@@ -8,11 +8,13 @@ export default function E11() {
 
     function calcularTabuada() {
         let tabuada = []
-        
-        // Cada posição do array deve ser uma string "A x B = X"
-        
-        // Dica:
-        // tabuada.push
+
+        for (let i = 0; i <= 10; i++) {
+            let resultado = i * valor
+            let tabuadaTexto = `${valor} x ${i} = ${resultado}`
+
+            tabuada.push(tabuadaTexto)
+        }
 
         setTabuadas(tabuada)
     }
@@ -46,15 +48,21 @@ export default function E11() {
                     <div className='campos'>
                         <div className='campo'>
                             <label>Tabuada do:</label>
-                            <input placeholder='0' onChange={e => setValor(e.target.value)} />
+                            <input 
+                                placeholder='0' 
+                                onChange={e => setValor(e.target.value)} 
+                            />
                         </div>
                         
-                        <button className='executar' onClick={calcularTabuada}>Executar</button>
+                        <button 
+                            className='executar' 
+                            onClick={calcularTabuada}>Executar</button>
                     </div>
+
                     {
-                        // Utilize uma função do array para mapear os itens para a tag h3.
-                        // tabuadas
-                        // <h3 className='resultado'>{t}</h3>
+                        tabuadas.map(
+                            linha => <p>{linha}</p>
+                        )
                     }
                 </div>
             </div>
